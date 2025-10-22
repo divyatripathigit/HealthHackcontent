@@ -4,7 +4,7 @@
     --card-bg: #124a59;  /* Slightly lighter card background */
     --primary-glow: #5ee3ff; /* Bright blue for glow/buttons */
     --text-color: #f0f0f0; /* Light text for readability */
-    --text-color-dark: #0c2a30; /* Dark text for buttons */
+    --text-color-dark: #070808; /* Dark text for buttons */
 }
 
 * {
@@ -119,6 +119,8 @@ header {
     text-decoration: none;
     font-weight: 600;
     font-size: 1rem;
+    border: none; /* Added for form buttons */
+    cursor: pointer; /* Added for form buttons */
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
@@ -138,7 +140,7 @@ header {
     }
 }
 
-/* --- Form Page Styles (Add to your style.css) --- */
+/* --- Form Page Styles --- */
 .form-section {
     text-align: center;
     padding: 2.5rem;
@@ -177,7 +179,10 @@ header {
     flex-direction: column;
 }
 
-.form-group label {
+/* * This styles the labels for dropdown and textarea
+ * Using > selector so it doesn't style radio/checkbox labels
+*/
+.form-group > label {
     font-weight: 600;
     font-size: 1rem;
     margin-bottom: 0.5rem;
@@ -197,6 +202,12 @@ header {
     transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
+/* Fix for <select> options on dark mode */
+.form-group select option {
+    background: var(--card-bg);
+    color: var(--text-color);
+}
+
 .form-group input:focus,
 .form-group select:focus {
     outline: none;
@@ -210,8 +221,6 @@ header {
     margin-top: 1rem;
     padding: 0.85rem;
 }
-
-/* --- Add this to your style.css --- */
 
 /* This styles the new textarea */
 .form-group textarea {
@@ -235,3 +244,43 @@ header {
     box-shadow: 0 0 10px rgba(94, 227, 255, 0.7);
     border-color: #8af0ff; /* Lighter blue on focus */
 }
+
+
+/* ===============================================
+=== NEW STYLES INTEGRATED FOR RADIO/CHECKBOX ===
+===============================================
+*/
+
+.form-group fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* This styles the <legend> (question) text */
+.form-group legend {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 1rem; /* More space for the options */
+    color: var(--primary-glow); /* Use glow color */
+    width: 100%; /* Ensure it takes full width */
+}
+
+/* Layout for groups */
+.radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.checkbox-group {
+    display: flex;
+    flex-direction: column; /* Stack checkboxes */
+    gap: 12px;
+}
+
+/* Container for one option (input + label) */
+.radio-option,
+    .checkbox-option {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Increased gap for custom inputs */}
