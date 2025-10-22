@@ -6,6 +6,8 @@
     <title>HealthHack - Mental Health</title>
     <link rel="stylesheet" href="main.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+  
 </head>
 <body>
 
@@ -23,9 +25,256 @@
             <p>This is a private space to reflect. Your response is not saved or shared.</p>
             
             <form id="mental-health-form" class="tool-form">
+
                 <div class="form-group">
-                    <label for="journal-entry">How are you feeling today?</label>
-                    <textarea id="journal-entry" name="journal-entry" rows="8" placeholder="Feel free to write about your day, your mood, or anything on your mind..."></textarea>
+                    <fieldset>
+                        <legend>What's your overall mood right now?</legend>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="mood-good" name="mood" value="good">
+                                <label for="mood-good">Good</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="mood-okay" name="mood" value="okay">
+                                <label for="mood-okay">Okay</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="mood-meh" name="mood" value="meh">
+                                <label for="mood-meh">Meh</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="mood-bad" name="mood" value="bad">
+                                <label for="mood-bad">Bad</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="form-group">
+                    <label for="mood-trigger">What's on your mind the most?</label>
+                    <select id="mood-trigger" name="mood-trigger">
+                        <option value="" disabled selected>Select an area...</option>
+                        <option value="work">Work / School</option>
+                        <option value="relationships">Relationships</option>
+                        <option value="health">Personal Health</option>
+                        <option value="finances">Finances</option>
+                        <option value="world">World Events</option>
+                        <option value="today">Just today's events</option>
+                        <option value="none">Nothing in particular</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <fieldset>
+                        <legend>How did you sleep last night?</legend>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="sleep-good" name="sleep" value="good">
+                                <label for="sleep-good">Rested</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="sleep-okay" name="sleep" value="okay">
+                                <label for="sleep-okay">Okay</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="sleep-restless" name="sleep" value="restless">
+                                <label for="sleep-restless">Restless</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="sleep-bad" name="sleep" value="bad">
+                                <label for="sleep-bad">Poorly</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="form-group">
+                    <fieldset>
+                        <legend>What's your energy level like today?</legend>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="energy-high" name="energy" value="high">
+                                <label for="energy-high">High</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="energy-normal" name="energy" value="normal">
+                                <label for="energy-normal">Normal</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="energy-low" name="energy" value="low">
+                                <label for="energy-low">Low</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="energy-drained" name="energy" value="drained">
+                                <label for="energy-drained">Drained</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                
+                <div class="form-group">
+                    <fieldset>
+                        <legend>How much have you been worrying today?</legend>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="worry-none" name="worry" value="none">
+                                <label for="worry-none">Not at all</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="worry-some" name="worry" value="some">
+                                <label for="worry-some">A little</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="worry-lot" name="worry" value="lot">
+                                <label for="worry-lot">A lot</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="worry-cant-stop" name="worry" value="constant">
+                                <label for="worry-cant-stop">Can't stop</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="form-group">
+                    <fieldset>
+                        <legend>Have you found joy or interest in your usual activities?</legend>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="joy-yes" name="joy" value="yes">
+                                <label for="joy-yes">Yes, definitely</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="joy-little" name="joy" value="little">
+                                <label for="joy-little">A little bit</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="joy-not-really" name="joy" value="not-really">
+                                <label for="joy-not-really">Not really</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="form-group">
+                    <fieldset>
+                        <legend>Have you felt connected to others?</legend>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="social-yes" name="social" value="yes">
+                                <label for="social-yes">Yes, connected</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="social-bit" name="social" value="bit">
+                                <label for="social-bit">A little</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="social-no" name="social" value="no">
+                                <label for="social-no">Isolated</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="form-group">
+                    <fieldset>
+                        <legend>What self-care have you practiced today? (Check all that apply)</legend>
+                        <div class="checkbox-group">
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="sc-meal" name="selfcare" value="meal">
+                                <label for="sc-meal">Ate a nourishing meal</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="sc-water" name="selfcare" value="water">
+                                <label for="sc-water">Drank enough water</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="sc-move" name="selfcare" value="move">
+                                <label for="sc-move">Moved my body (walk, stretch, etc.)</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="sc-break" name="selfcare" value="break">
+                                <label for="sc-break">Took a mindful break</label>
+                            </div>
+                             <div class="checkbox-option">
+                                <input type="checkbox" id="sc-hobby" name="selfcare" value="hobby">
+                                <label for="sc-hobby">Spent time on a hobby</label>
+                            </div>
+                             <div class="checkbox-option">
+                                <input type="checkbox" id="sc-none" name="selfcare-none" value="none">
+                                <label for="sc-none">Haven't had time for any yet</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="form-group">
+                    <fieldset>
+                        <legend>How has your ability to focus been?</legend>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="focus-good" name="focus" value="good">
+                                <label for="focus-good">Good</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="focus-ok" name="focus" value="ok">
+                                <label for="focus-ok">Okay</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="focus-distracted" name="focus" value="distracted">
+                                <label for="focus-distracted">Distracted</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="focus-none" name="focus" value="none">
+                                <label for="focus-none">Can't focus</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="form-group">
+                    <fieldset>
+                        <legend>How does your body feel physically?</legend>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="body-relaxed" name="body" value="relaxed">
+                                <label for="body-relaxed">Relaxed</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="body-tense" name="body" value="tense">
+                                <label for="body-tense">A bit tense</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="body-pain" name="body" value="pain">
+                                <label for="body-pain">Achy / Pain</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="form-group">
+                    <fieldset>
+                        <legend>How are you feeling about tomorrow?</legend>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="outlook-good" name="outlook" value="good">
+                                <label for="outlook-good">Optimistic</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="outlook-neutral" name="outlook" value="neutral">
+                                <label for="outlook-neutral">Neutral</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="outlook-worried" name="outlook" value="worried">
+                                <label for="outlook-worried">Worried</Dlabel>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="form-group">
+                    <label for="journal-entry">Want to add more detail? (Optional)</label>
+                    <textarea id="journal-entry" name="journal-entry" rows="8" placeholder="Feel free to expand on any of your answers, or write about anything else on your mind..."></textarea>
                 </div>
                 
                 <button type="submit" class="btn">Submit Reflection</button>
