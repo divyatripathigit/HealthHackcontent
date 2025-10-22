@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthHack - Diabetes Prediction</title>
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo-container">
+                <a href="main.html"><img src="logo.png" alt="HealthHack Logo" class="logo"></a>            
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="form-section">
+            <h1>Diabetes Prediction</h1>
+            <p>Please enter your information below to assess your risk.</p>
+            
+            <form id="diabetes-form" class="tool-form">
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" name="age" placeholder="e.g., 45" required>
+                </div>
+                <div class="form-group">
+                    <label for="glucose">Glucose Level (mg/dL)</label>
+                    <input type="number" id="glucose" name="glucose" placeholder="e.g., 120" required>
+                </div>
+                <div class="form-group">
+                    <label for="bp">Insulin (mlU/L)</label>
+                    <input type="number" id="bp" name="bp" placeholder="e.g., 10" required>
+                </div>
+                <div class="form-group">
+                    <label for="bmi">Body Mass Index (BMI)</label>
+                    <input type="text" id="bmi" name="bmi" placeholder="e.g., 24.5" required>
+                </div>
+                 <div class="form-group">
+                    <label for="bmi">Family History</label>
+                    <input type="text" id="bmi" name="bmi" required>
+                </div>
+                <button type="submit" class="btn">Calculate Risk</button>
+            </form>
+        </section>
+        
+    </main>
+
+</body>
+</html>

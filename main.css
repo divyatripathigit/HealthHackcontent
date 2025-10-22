@@ -1,0 +1,237 @@
+/* --- Global Styles --- */
+:root {
+    --bg-color: #0c2a30; /* The dark teal background */
+    --card-bg: #124a59;  /* Slightly lighter card background */
+    --primary-glow: #5ee3ff; /* Bright blue for glow/buttons */
+    --text-color: #f0f0f0; /* Light text for readability */
+    --text-color-dark: #0c2a30; /* Dark text for buttons */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', 'Segoe UI', 'Roboto', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
+}
+
+/* --- Header & Logo --- */
+header {
+    padding: 2rem 5%;
+}
+
+.logo-container {
+    text-align: center; /* Center logo for this layout */
+}
+
+.logo {
+    max-width: 250px; /* Adjust as needed */
+    height: auto;
+}
+
+/* --- Hero Section --- */
+.hero {
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+/* --- Options Container --- */
+.options-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch; /* Makes cards same height */
+    flex-wrap: wrap; /* Allows cards to stack on small screens */
+    gap: 2rem;
+    padding: 2rem 5%;
+}
+
+/* --- Option Cards --- */
+.option-card {
+    background-color: var(--card-bg);
+    border: 2px solid var(--primary-glow);
+    border-radius: 15px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 380px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(94, 227, 255, 0.4), 
+                inset 0 0 10px rgba(94, 227, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    /* Flexbox for internal alignment */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.option-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 30px rgba(94, 227, 255, 0.7),
+                inset 0 0 15px rgba(94, 227, 255, 0.3);
+}
+
+.card-icon {
+    font-size: 3.5rem;
+    color: var(--primary-glow);
+    margin-bottom: 1rem;
+}
+
+.option-card h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.option-card p {
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+    flex-grow: 1; /* Pushes button to bottom */
+}
+
+/* --- Button Styling --- */
+.btn {
+    display: inline-block;
+    background-color: var(--primary-glow);
+    color: var(--text-color-dark);
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px; /* Pill shape */
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #8af0ff; /* Lighter on hover */
+    transform: scale(1.05);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .logo {
+        max-width: 280px;
+    }
+}
+
+/* --- Form Page Styles (Add to your style.css) --- */
+.form-section {
+    text-align: center;
+    padding: 2.5rem;
+    max-width: 650px; /* Keep form contained */
+    margin: 2rem auto; /* Center it on the page */
+    background-color: var(--card-bg); /* Use card background */
+    border-radius: 15px;
+    border: 2px solid var(--primary-glow);
+    box-shadow: 0 0 15px rgba(94, 227, 255, 0.4),
+                inset 0 0 10px rgba(94, 227, 255, 0.2);
+}
+
+.form-section h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.form-section p {
+    font-size: 1.1rem;
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+}
+
+.tool-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Space between form groups */
+    text-align: left; /* Align labels to the left */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-glow); /* Use glow color for labels */
+}
+
+/* Style for text inputs, number inputs, and select dropdowns */
+.form-group input,
+.form-group select {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    background-color: var(--bg-color); /* Darkest background */
+    border: 1px solid var(--primary-glow);
+    border-radius: 8px;
+    color: var(--text-color);
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(94, 227, 255, 0.7);
+    border-color: #8af0ff; /* Lighter blue on focus */
+}
+
+/* Make the button full width inside the form and add top margin */
+.tool-form .btn {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 0.85rem;
+}
+
+/* --- Add this to your style.css --- */
+
+/* This styles the new textarea */
+.form-group textarea {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    background-color: var(--bg-color); /* Darkest background */
+    border: 1px solid var(--primary-glow);
+    border-radius: 8px;
+    color: var(--text-color);
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    
+    /* Specific to textarea */
+    min-height: 150px;
+    resize: vertical; /* Allows user to resize vertically only */
+}
+
+/* This makes the textarea glow when clicked */
+.form-group textarea:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(94, 227, 255, 0.7);
+    border-color: #8af0ff; /* Lighter blue on focus */
+}
