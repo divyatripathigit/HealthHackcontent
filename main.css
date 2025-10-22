@@ -15,7 +15,16 @@
 
 body {
     font-family: 'Poppins', 'Segoe UI', 'Roboto', sans-serif;
-    background-color: var(--bg-color);
+    /* Updated background with your image */
+    background-color: var(--bg-color); /* Fallback color */
+    
+    /* This expects 'image_280c9a.jpg' to be in the same folder */
+    background-image: url('image.png'); 
+    
+    background-size: cover; /* Cover the entire viewport */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Don't tile the image */
+    background-attachment: fixed; /* Keep background fixed when scrolling */
     color: var(--text-color);
     min-height: 100vh;
 }
@@ -137,6 +146,21 @@ header {
     
     .logo {
         max-width: 280px;
+    }
+
+    /* Make chat window smaller on mobile */
+    .chat-window-container {
+        max-width: 100%;
+        height: 100%;
+        bottom: 0;
+        right: 0;
+        border-radius: 0;
+        border: none;
+    }
+
+    .chat-bubble {
+        bottom: 1rem;
+        right: 1rem;
     }
 }
 
@@ -280,7 +304,181 @@ header {
 
 /* Container for one option (input + label) */
 .radio-option,
-    .checkbox-option {
+.checkbox-option {
     display: flex;
     align-items: center;
-    gap: 10px; /* Increased gap for custom inputs */}
+    gap: 10px; /* Increased gap for custom inputs */
+}
+
+/* Style for the answer labels (e.g., "Good", "Okay", "Bad") */
+.radio-option label,
+.checkbox-option label {
+    color: var(--text-color); /* Normal light text color */
+    font-weight: 400; /* Lighter weight than question */
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/* --- Custom Radio/Checkbox Inputs --- */
+
+/* Hide default browser input */
+.radio-option input[type="radio"],
+.checkbox-option input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: var(--bg-color);
+    border: 2px solid var(--primary-glow);
+    margin: 0;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.radio-option input[type="radio"] {
+    border-radius: 50%; /* Make it a circle */
+}
+
+.checkbox-option input[type="checkbox"] {
+    border-radius: 4px; /* Make it a square */
+}
+
+/* Style for the 'checked' state */
+.radio-option input[type="radio"]:checked,
+.checkbox-option input[type="checkbox"]:checked {
+    background-color: var(--primary-glow);
+    border-color: var(--primary-glow);
+}
+
+/* Create the inner dot for radio */
+.radio-option input[type="radio"]:checked::after {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    background: var(--card-bg); /* Use card bg for contrast */
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Create the checkmark for checkbox */
+.checkbox-option input[type="checkbox"]:checked::after {
+    content: '';
+    display: block;
+    width: 6px;
+    height: 12px;
+    border: solid var(--card-bg); /* Use card bg for contrast */
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+    position: absolute;
+    left: 6px;
+    top: 2px;
+}
+
+
+/* ===============================================
+   === CHATBOT STYLES ===
+   ===============================================
+*/
+
+/* Chatbot styles */
+.chat-icon {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #66d6ef;
+    color: white;
+    font-size: 24px;
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+.chat-icon:hover {
+    background: #567792;
+    transform: scale(1.1);
+}
+
+.chatbot-container {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    bottom: 80px;
+    right: 25px;
+    width: 320px;
+    height: 400px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.chat-header {
+    background: #3f9ca2;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-header h3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.chat-body {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    background: #f7f8fc;
+}
+
+.bot-msg, .user-msg {
+    margin: 8px 0;
+    padding: 8px 12px;
+    border-radius: 10px;
+    max-width: 80%;
+}
+
+.bot-msg {
+    background: #0d1014;
+    align-self: flex-start;
+}
+
+.user-msg {
+    background: #11473b;
+    color: white;
+    align-self: flex-end;
+}
+
+.chat-input {
+    display: flex;
+    border-top: 1px solid #171414;
+}
+
+.chat-input input {
+    flex: 1;
+    border: none;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.chat-input button {
+    background: #36828f;
+    color: rgb(206, 189, 189);
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.chat-input button:hover {
+    background: #2c8489;
+}
